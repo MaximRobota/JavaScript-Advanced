@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Constructor Свойства и методы</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<script type="text/javascript">
+	// Конструктор
+		function Human (param) {
+	//Свойства
+			this.name = param.name;
+			this.old = param.old;
+		}
+	//Методы (общ. прототипа)
+		Human.prototype.getSum = function() {
+			return this.name + " " + this.old; 
+		}
+		Human.prototype.toString = function() {
+			return this.name + " !toString! " + this.old;
+		}
+		Human.prototype.valueOf = function() {
+			return this.getSum();
+		}
+	//Объекты
+		var n = new Human({name:"Max", old:25});
+		var o = new Human({name:"Sveta", old:21});
+	//Вызов 
+		document.write("Hello! My name is " + n.name + ". I'm " + n.old + " old." +"<br />");
+		document.write("Hello! My name is " + n + " " + o + "<br />");
+		document.write("Hello! My name is " + n.toString() + " I'm old is " + o.toString() + "<br />");
+		document.write("Hello! My name is " + n.valueOf() + " I'm old is " + o.valueOf() + "<br />");
+	//Результат
+		// Hello! My name is Max. I'm 25 old.
+		// Hello! My name is Max 25 Sveta 21
+		// Hello! My name is Max/ 25 I'm old is Sveta/ 21
+		// Hello! My name is Max 25 I'm old is Sveta 21
+	</script>
+</body>
+</html>
